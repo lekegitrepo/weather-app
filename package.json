@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/lekegitrepo/weather-app/issues"
   },
-  "homepage": "https://github.com/lekegitrepo/weather-app#readme"
+  "homepage": "https://github.com/lekegitrepo/weather-app#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1"
+  }
 }
