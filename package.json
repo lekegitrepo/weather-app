@@ -1,0 +1,20 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lekegitrepo/weather-app.git"
+  },
+  "keywords": [],
+  "author": "Adeleke Temitayo <mailadeleketemitayo@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lekegitrepo/weather-app/issues"
+  },
+  "homepage": "https://github.com/lekegitrepo/weather-app#readme"
+}
