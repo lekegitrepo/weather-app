@@ -1,5 +1,8 @@
 import './scss/app.scss';
 
+const input = document.getElementById('location');
+const btn = document.getElementById('submit-loc');
+
 const fetchWeatherApi = (location) => {
   const api = fetch(`http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=3200d53ac65b442eb5f439f5613ee06c`, {mode: 'cors'})
   .then((res) => {
@@ -18,5 +21,8 @@ const getJSON = (jsonData) => {
   console.log(jsonData.name);
 }
 
-fetchWeatherApi('London');
-fetchWeatherApi('Paris');
+btn.addEventListener('click', () => {
+  fetchWeatherApi(input.value);
+  fetchWeatherApi('London');
+  fetchWeatherApi('Paris');
+})
