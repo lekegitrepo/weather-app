@@ -7,9 +7,15 @@ const fetchWeatherApi = (location) => {
   })
   .then((res) => {
     console.log(res);
+    getJSON(res);
+    return res;
   }).catch((err) => {
     console.log(err);
   })
+}
+
+const getJSON = (jsonData) => {
+  console.log(jsonData.name);
 }
 
 fetchWeatherApi('London');
