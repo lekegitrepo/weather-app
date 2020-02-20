@@ -3,6 +3,8 @@ import './scss/app.scss';
 const input = document.getElementById('location');
 const btn = document.getElementById('submit-loc');
 const weatherInfo = document.getElementById('weather-info');
+const btnCelsius = document.getElementById('celsius');
+const btnFahren = document.getElementById('fahrenheit');
 
 const fetchWeatherApi = (location) => {
   const api = fetch(`http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=3200d53ac65b442eb5f439f5613ee06c`, {mode: 'cors'})
@@ -28,7 +30,7 @@ const getJSON = (jsonData) => {
           <p>Country: ${jsonData.sys.country}</p>
         </div>
         <div class="col-md-3">
-          <p>Temperature: ${jsonData.main.temp}</p>
+          <p>Temperature: <span id="temp">${jsonData.main.temp}</span></p>
         </div>
         <div class="col-md-3">
           <p>Weather: ${jsonData.weather[0].main}</p>
@@ -45,4 +47,21 @@ btn.addEventListener('click', () => {
   fetchWeatherApi(input.value);
   //fetchWeatherApi('London');
   //fetchWeatherApi('Paris');
+})
+
+btnCelsius.addEventListener('click', () => {
+  const temp = document.getElementById('temp');
+  const cels = Math.round(parseFloat(temp.innerText,  10) - 273.15);
+  console.log(temp.innerText)
+  temp.innerHTML = cels + '°C';
+  console.log(cels)
+})
+
+btnFahren.addEventListener('click', () => {
+  const temp = document.getElementById('temp');
+  const cels = Math.round(parseFloat(temp.innerText,  10) - 273.15);
+  const faren = Math.round(cels * (9 / 5) + 32);
+  console.log(temp.innerText)
+  temp.innerHTML = faren + '°F';
+  console.log(cels)
 })
