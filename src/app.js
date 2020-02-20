@@ -19,34 +19,24 @@ const fetchWeatherApi = (location) => {
 }
 
 const getJSON = (jsonData) => {
-
-  const location = () => {
-    return {city: jsonData.name, country: jsonData.sys.country};
-  }
-
-  const temp = () => {
-    return {temp: jsonData.main.temp, humidity: jsonData.main.humidity, pressure: jsonData.main.pressure};
-  }
-
-  const weather = () => {
-    return {weather: jsonData.weather[0].main, description: jsonData.weather[0].description};
-  }
-
-  const wind = () => {
-    return {speed: jsonData.wind.speed, deg: jsonData.wind.deg};
-  }
-
-  const coordinate = () => {
-    return {lon: jsonData.coord.lon, lat: jsonData.coord.lat};
-  }
-
-  return {
-    location,
-    temp,
-    weather,
-    wind,
-    coordinate
-  }
+  console.log(jsonData.name);
+  weatherInfo.innerHTML = `<div>Weather Info</div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <p>City: ${jsonData.name}</p>
+          <p>Country: ${jsonData.sys.country}</p>
+        </div>
+        <div class="col-md-3">
+          <p>Temperature: ${jsonData.main.temp}</p>
+        </div>
+        <div class="col-md-3">
+          <p>Weather: ${jsonData.weather[0].main}</p>
+        </div>
+        <div class="col-md-3"></div>
+        <p></p>
+      </div>
+    </div>`
 }
 
 btn.addEventListener('click', () => {
