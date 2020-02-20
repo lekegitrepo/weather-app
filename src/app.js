@@ -33,8 +33,10 @@ const getJSON = (jsonData) => {
         <div class="col-md-3">
           <p>Weather: ${jsonData.weather[0].main}</p>
         </div>
-        <div class="col-md-3"></div>
-        <p></p>
+        <div class="col-md-3">
+          <p>Wind Speed</p>
+          <p>${jsonData.wind.speed}</p>
+        </div>
       </div>
     </div>`
 }
