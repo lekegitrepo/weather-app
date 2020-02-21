@@ -17,13 +17,15 @@ async function fetchWeatherApi (location) {
     return resp;
   }catch (err) {
     console.log('error: unable to fetch weather info');
+    loader.style.display = 'none';
   }
 }
 
-async function displayWeatherInfo() {
+async function getWeatherInfo() {
   const info = await fetchWeatherApi(input.value).catch((err) => {console.log(err)});
   console.log(info);
   dataHub = getJSON(info);
+  loader.style.display = 'none';
   getJSONOld(info)
 }
 
@@ -34,11 +36,22 @@ const getJSON = (jsonData) => {
   }
 
   const temp = () => {
-    return {mainTemp: jsonData.main.temp, humidity: jsonData.main.humidity, pressure: jsonData.main.pressure};
+    return {
+      mainTemp: jsonData.main.temp,
+      humidity: jsonData.main.humidity,
+      pressure: jsonData.main.pressure,
+      feels_like: jsonData.main.feels_like,
+      minTemp: jsonData.main.temp_min,
+      maxTemp: jsonData.main.temp_max
+    };
   }
 
   const weather = () => {
-    return {weather: jsonData.weather[0].main, description: jsonData.weather[0].description};
+    return {
+      weather: jsonData.weather[0].main,
+      description: jsonData.weather[0].description,
+      icon: jsonData.weather[0].icon
+    };
   }
 
   const wind = () => {
@@ -81,13 +94,13 @@ const getJSONOld = (jsonData) => {
     </div>`
 }
 
+const displayWeatherInfo = (info) => {
+}
+
 btn.addEventListener('click', async () => {
-  await displayWeatherInfo();
+  loader.style.display = 'block';
+  await getWeatherInfo();
   console.log(dataHub.location().city);
-  //fetchWeatherApi(input.value);
-  //loader.style.display = 'block';
-  //fetchWeatherApi('London');
-  //fetchWeatherApi('Paris');
 })
 
 btnCelsius.addEventListener('click', () => {
