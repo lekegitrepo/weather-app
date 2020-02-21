@@ -96,29 +96,6 @@ const getJSON = (jsonData) => {
   }
 };
 
-const getJSONOld = (jsonData) => {
-  console.log(jsonData.name);
-  weather.innerHTML = `<div>Weather Info</div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <p>City: ${jsonData.name}</p>
-          <p>Country: ${jsonData.sys.country}</p>
-        </div>
-        <div class="col-md-3">
-          <p>Temperature: <span id="temp">${jsonData.main.temp}</span></p>
-        </div>
-        <div class="col-md-3">
-          <p>Weather: ${jsonData.weather[0].main}</p>
-        </div>
-        <div class="col-md-3">
-          <p>Wind Speed</p>
-          <p>${jsonData.wind.speed}</p>
-        </div>
-      </div>
-    </div>`
-}
-
 const displayWeatherInfo = (info) => {
   locationInfo[0].textContent = info.location().city;
   locationInfo[1].textContent = info.location().country;
