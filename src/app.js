@@ -6,7 +6,7 @@ const btnCelsius = document.getElementById('celsius');
 const btnFahren = document.getElementById('fahrenheit');
 const loader = document.getElementById('loader-container');
 
-const weather = document.getElementById('weather-info');
+const weatherIcon = document.getElementById('weather-icon');
 
 const locationInfo = document.querySelectorAll('.location > p');
 const tempInfo = document.querySelectorAll('.temp > div > p');
@@ -106,6 +106,7 @@ const displayWeatherInfo = (info) => {
   locationInfo[0].textContent = info.location().city;
   locationInfo[1].textContent = info.location().country;
 
+  weatherIcon.src = `http://openweathermap.org/img/wn/${info.weather().icon}@2x.png`;
   weatherInfo[0].textContent = info.weather().weather;
 
   tempInfo[0].textContent = info.temp().mainTemp;
