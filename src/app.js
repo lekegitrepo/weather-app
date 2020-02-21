@@ -103,7 +103,7 @@ const displayWeatherInfo = (info) => {
   weatherIcon.src = `http://openweathermap.org/img/wn/${info.weather().icon}@2x.png`;
   weatherInfo[0].textContent = info.weather().weather;
 
-  tempInfo[0].textContent = info.temp().mainTemp;
+  tempInfo[0].textContent = Math.round(info.temp().mainTemp - 273.15) + '°C';
 
   windSpeedInfo[0].textContent = info.wind().speed;
 }
