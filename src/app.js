@@ -7,16 +7,19 @@ const btnFahren = document.getElementById('fahrenheit');
 const loader = document.getElementById('loader-container');
 
 const weatherIcon = document.getElementById('weather-icon');
+const infoContainer = document.getElementById('info-container');
 
 const locationInfo = document.querySelectorAll('.location > p');
 const tempInfo = document.querySelectorAll('.temp > div > p');
 const weatherInfo = document.querySelectorAll('.weather> div > p');
 const windSpeedInfo = document.querySelectorAll('.wind-speed > div > p');
-console.log(windSpeedInfo[0])
 
-let dataHub;
+const errorDiv = document.createElement('div');
+
+let dataHub = null;
 
 async function fetchWeatherApi (location) {
+  errorDiv.innerHTML = '';
   try{
     const api = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=3200d53ac65b442eb5f439f5613ee06c`, {mode: 'cors'});
     const resp = await api.json();
@@ -25,19 +28,33 @@ async function fetchWeatherApi (location) {
   }catch (err) {
     console.log('error: unable to fetch weather info');
     loader.style.display = 'none';
+    errorDiv.innerHTML = `<h2>Unable to find weather info of ${input.value}</h2>`;
+    infoContainer.appendChild(errorDiv);
   }
 }
 
 async function getWeatherInfo() {
-  const info = await fetchWeatherApi(input.value).catch((err) => {console.log(err)});
+  const info = await fetchWeatherApi(input.value);
   console.log(info);
-  dataHub = getJSON(info);
-  loader.style.display = 'none';
-  displayWeatherInfo(dataHub)
+  try{
+    dataHub = getJSON(info);
+    displayWeatherInfo(dataHub);
+    loader.style.display = 'none';
+  }catch (err) {
+    loader.style.display = 'none';
+    console.log('Unable to find weather info');
+    loader.style.display = 'none';
+    errorDiv.innerHTML = `<h2>Unable to find weather info of ${input.value}</h2>`;
+    infoContainer.appendChild(errorDiv);
+  }
   //getJSONOld(info)
 }
 
 const getJSON = (jsonData) => {
+
+  if (jsonData.cod == '404') {
+    return;
+  }
 
   const location = () => {
     return {city: jsonData.name, country: jsonData.sys.country};
