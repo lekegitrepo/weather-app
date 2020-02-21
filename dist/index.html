@@ -12,21 +12,17 @@
     <div id="loader-container" class="loader-container">
       <div class="loader"></div>
     </div>
-    <section>
-       <div>
+    <section class="mt-4">
+       <div class="form">
           <div class="form-group">
-            <input class="form-control" type="text" name="" id="location">
+            <input class="form-control mx-auto" type="text" name="" id="location">
           </div>
-          <div class="form-group">
-            <input type="submit" name="" id="submit-loc">
+          <div class="form-group text-center">
+            <input type="submit" class="btn btn-primary" id="submit-loc">
           </div>
         </div>
 
-        <div>
-          <button id="celsius" class="btn btn-primary mr-3 p-4">°C</button>
-          <button id="fahrenheit" class="btn btn-primary p-4">°F</button>
-        </div>
-      <h4>Weather Info</h4>
+       <div class="text-center my-4"><h4>Weather Info</h4></div>
         <div class="container">
           <div class="row">
             <div class="col-md-3 location">
@@ -40,10 +36,15 @@
                 <p></p>
                 <p></p>
               </div>
+              <div class="temp-btns text-center">
+                <button id="celsius" class="btn btn-primary mr-3 p-1">°C</button>
+                <button id="fahrenheit" class="btn btn-primary p-1">°F</button>
+              </div>
             </div>
             <div class="col-md-3 weather">
               <h5>Weather Status</h5>
               <div>
+                <img id="weather-icon" src="">
                 <p></p>
               </div>
             </div>
