@@ -2,10 +2,17 @@ import './scss/app.scss';
 
 const input = document.getElementById('location');
 const btn = document.getElementById('submit-loc');
-const weatherInfo = document.getElementById('weather-info');
 const btnCelsius = document.getElementById('celsius');
 const btnFahren = document.getElementById('fahrenheit');
 const loader = document.getElementById('loader-container');
+
+const weather = document.getElementById('weather-info');
+
+const locationInfo = document.querySelectorAll('.location > p');
+const tempInfo = document.querySelectorAll('.temp > div > p');
+const weatherInfo = document.querySelectorAll('.weather> div > p');
+const windSpeedInfo = document.querySelectorAll('.wind-speed > div > p');
+console.log(windSpeedInfo[0])
 
 let dataHub;
 
@@ -26,7 +33,8 @@ async function getWeatherInfo() {
   console.log(info);
   dataHub = getJSON(info);
   loader.style.display = 'none';
-  getJSONOld(info)
+  displayWeatherInfo(dataHub)
+  //getJSONOld(info)
 }
 
 const getJSON = (jsonData) => {
@@ -73,7 +81,7 @@ const getJSON = (jsonData) => {
 
 const getJSONOld = (jsonData) => {
   console.log(jsonData.name);
-  weatherInfo.innerHTML = `<div>Weather Info</div>
+  weather.innerHTML = `<div>Weather Info</div>
     <div class="container">
       <div class="row">
         <div class="col-md-3">
@@ -95,6 +103,14 @@ const getJSONOld = (jsonData) => {
 }
 
 const displayWeatherInfo = (info) => {
+  locationInfo[0].textContent = info.location().city;
+  locationInfo[1].textContent = info.location().country;
+
+  weatherInfo[0].textContent = info.weather().weather;
+
+  tempInfo[0].textContent = info.temp().mainTemp;
+
+  windSpeedInfo[0].textContent = info.wind().speed;
 }
 
 btn.addEventListener('click', async () => {
@@ -104,18 +120,16 @@ btn.addEventListener('click', async () => {
 })
 
 btnCelsius.addEventListener('click', () => {
-  const temp = document.getElementById('temp');
   const cels = Math.round(dataHub.temp().mainTemp - 273.15);
   console.log(dataHub.temp().mainTemp)
-  temp.innerHTML = cels + '°C';
+  tempInfo[0].textContent = cels + '°C';
   console.log(cels)
 })
 
 btnFahren.addEventListener('click', () => {
-  const temp = document.getElementById('temp');
   const cels = Math.round(dataHub.temp().mainTemp - 273.15);
   const faren = Math.round(cels * (9 / 5) + 32);
   console.log(dataHub.temp().mainTemp)
-  temp.innerHTML = faren + '°F';
+  tempInfo[0].textContent = faren + '°F';
   console.log(faren)
 })
