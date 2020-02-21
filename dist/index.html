@@ -8,19 +8,52 @@
 </head>
 <body>
 
-  <div>
-    <div class="form-group">
-      <input class="form-control" type="text" name="" id="location">
-    </div>
-    <div class="form-group">
-      <input type="submit" name="" id="submit-loc">
-    </div>
-  </div>
+  <main>
+    <section>
+       <div>
+          <div class="form-group">
+            <input class="form-control" type="text" name="" id="location">
+          </div>
+          <div class="form-group">
+            <input type="submit" name="" id="submit-loc">
+          </div>
+        </div>
 
-  <div>
-    <button id="celsius" class="btn btn-primary mr-3 p-4">°C</button>
-    <button id="fahrenheit" class="btn btn-primary p-4">°F</button>
-  </div>
+        <div>
+          <button id="celsius" class="btn btn-primary mr-3 p-4">°C</button>
+          <button id="fahrenheit" class="btn btn-primary p-4">°F</button>
+        </div>
+      <h4>Weather Info</h4>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <p>Location</p>
+              <p>Country:</p>
+              <p>City</p>
+            </div>
+            <div class="col-md-3">
+              <p>Temperature</p>
+              <div>
+                <p>Temperature max</p>
+                <p>Temperature min</p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <p>Weather Status</p>
+              <div>
+                <p>weather</p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <p>Wind Speed</p>
+              <div>
+                <p>4km/h</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+  </main>
 
   <div id="weather-info" class="container">
   </div>
