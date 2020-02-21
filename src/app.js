@@ -21,7 +21,7 @@ let dataHub = null;
 async function fetchWeatherApi (location) {
   errorDiv.innerHTML = '';
   try{
-    const api = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=3200d53ac65b442eb5f439f5613ee06c`, {mode: 'cors'});
+    const api = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=3200d53ac65b442eb5f439f5613ee06c`, {mode: 'cors'});
     const resp = await api.json();
     console.log(resp)
     return resp;
