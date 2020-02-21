@@ -5,6 +5,7 @@ const btn = document.getElementById('submit-loc');
 const weatherInfo = document.getElementById('weather-info');
 const btnCelsius = document.getElementById('celsius');
 const btnFahren = document.getElementById('fahrenheit');
+const loader = document.getElementById('loader-container');
 
 const fetchWeatherApi = (location) => {
   const api = fetch(`http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=3200d53ac65b442eb5f439f5613ee06c`, {mode: 'cors'})
@@ -14,8 +15,10 @@ const fetchWeatherApi = (location) => {
   .then((res) => {
     console.log(res);
     getJSON(res);
+    loader.style.display = 'none';
     return res;
   }).catch((err) => {
+    loader.style.display = 'none';
     console.log(err);
   })
 }
@@ -45,6 +48,7 @@ const getJSON = (jsonData) => {
 
 btn.addEventListener('click', () => {
   fetchWeatherApi(input.value);
+  loader.style.display = 'block';
   //fetchWeatherApi('London');
   //fetchWeatherApi('Paris');
 })
