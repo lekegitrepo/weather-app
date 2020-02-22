@@ -47,17 +47,12 @@ async function getWeatherInfo() {
     errorDiv.innerHTML = `<h2>Unable to find weather info of ${input.value}</h2>`;
     infoContainer.appendChild(errorDiv);
   }
-  //getJSONOld(info)
 }
 
 const getJSON = (jsonData) => {
-
-  if (jsonData.cod == '404') {
-    return;
-  }
-
   const location = () => {
-    return {city: jsonData.name, country: jsonData.sys.country};
+    const [city, country] = [jsonData.name, jsonData.sys.country]
+    return {city, country};
   }
 
   const temp = () => {
