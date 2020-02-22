@@ -56,30 +56,34 @@ const getJSON = (jsonData) => {
   }
 
   const temp = () => {
+    const { temp, temp_min, temp_max, feels_like, pressure, humidity } = jsonData.main;
     return {
-      mainTemp: jsonData.main.temp,
-      humidity: jsonData.main.humidity,
-      pressure: jsonData.main.pressure,
-      feels_like: jsonData.main.feels_like,
-      minTemp: jsonData.main.temp_min,
-      maxTemp: jsonData.main.temp_max
+      temp,
+      humidity,
+      pressure,
+      feels_like,
+      temp_min,
+      temp_max
     };
   }
 
   const weather = () => {
+    const { main, description, icon } = jsonData.weather[0];
     return {
-      weather: jsonData.weather[0].main,
-      description: jsonData.weather[0].description,
-      icon: jsonData.weather[0].icon
+      main,
+      description,
+      icon
     };
   }
 
   const wind = () => {
-    return {speed: jsonData.wind.speed, deg: jsonData.wind.deg};
+    const {speed, deg} = jsonData.wind;
+    return {speed, deg};
   }
 
   const coordinate = () => {
-    return {lon: jsonData.coord.lon, lat: jsonData.coord.lat};
+    const {lon, lat} = jsonData.coord;
+    return {lon, lat};
   }
 
   return {
@@ -96,9 +100,9 @@ const displayWeatherInfo = (info) => {
   locationInfo[1].textContent = info.location().country;
 
   weatherIcon.src = `http://openweathermap.org/img/wn/${info.weather().icon}@2x.png`;
-  weatherInfo[0].textContent = info.weather().weather;
+  weatherInfo[0].textContent = info.weather().main;
 
-  tempInfo[0].textContent = Math.round(info.temp().mainTemp - 273.15) + '°C';
+  tempInfo[0].textContent = Math.round(info.temp().temp - 273.15) + '°C';
 
   windSpeedInfo[0].textContent = info.wind().speed;
 }
@@ -110,16 +114,16 @@ btn.addEventListener('click', async () => {
 })
 
 btnCelsius.addEventListener('click', () => {
-  const cels = Math.round(dataHub.temp().mainTemp - 273.15);
-  console.log(dataHub.temp().mainTemp)
+  const cels = Math.round(dataHub.temp().temp - 273.15);
+  console.log(dataHub.temp().temp)
   tempInfo[0].textContent = cels + '°C';
   console.log(cels)
 })
 
 btnFahren.addEventListener('click', () => {
-  const cels = Math.round(dataHub.temp().mainTemp - 273.15);
+  const cels = Math.round(dataHub.temp().temp - 273.15);
   const faren = Math.round(cels * (9 / 5) + 32);
-  console.log(dataHub.temp().mainTemp)
+  console.log(dataHub.temp().temp)
   tempInfo[0].textContent = faren + '°F';
   console.log(faren)
 })
