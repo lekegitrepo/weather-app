@@ -39,3 +39,9 @@
     width: 40%;
   }
 }
+
+.bg-video {
+  position: relative;
+  overflow-x: hidden;
+  z-index: -1;
+}

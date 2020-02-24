@@ -1,4 +1,5 @@
 import './scss/app.scss';
+//import {videos} from '../bg-video/waves.mp4';
 
 const input = document.getElementById('location');
 const btn = document.getElementById('submit-loc');
