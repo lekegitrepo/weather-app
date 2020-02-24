@@ -41,7 +41,17 @@
 }
 
 .bg-video {
-  position: relative;
+  position: absolute;
   overflow-x: hidden;
-  z-index: -1;
+  width: 100vw;
+  z-index: -10;
+}
+
+.weather-section {
+  position: absolute;
+  background-color: #f3f3f334;
+  height: 100vh;
+  top: 30%;
+  width: 100vw;
+  z-index: 1;
 }
