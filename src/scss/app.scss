@@ -73,3 +73,9 @@
   position: absolute;
   width: 100%;
 }
+
+@media (max-width: 767px){
+  .bg-video {
+    overflow-y: auto;
+  }
+}
