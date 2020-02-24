@@ -35,23 +35,41 @@
 }
 
 .form {
+  padding-top: 2%;
   #location {
     width: 40%;
   }
 }
 
 .bg-video {
-  position: absolute;
-  overflow-x: hidden;
-  width: 100vw;
-  z-index: -10;
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  /*z-index: -10;*/
 }
 
-.weather-section {
-  position: absolute;
-  background-color: #f3f3f334;
+.bg-video .weather-info {
+  background-color: #f3f3f354;
   height: 100vh;
-  top: 30%;
-  width: 100vw;
+  justify-content: center;
+  width: 100%;
   z-index: 1;
+}
+
+.row {
+  margin: 5px 10px;
+}
+
+.sub-info {
+  background-color: #fff3f3b3;
+  border-radius: 10px;
+}
+
+.video-container {
+  position: absolute;
+  width: 100%;
 }

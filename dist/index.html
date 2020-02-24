@@ -10,15 +10,12 @@
 <body>
 
   <main>
-    <div class="bg-video">
-      <video autoplay loop muted>
-        <source src="../bg-videos/waves.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div id="loader-container" class="loader-container">
-      <div class="loader"></div>
-    </div>
-    <section class="mt-4 weather-section">
+    <section class="bg-video">
+      <div class="weather-info">
+        <div id="loader-container" class="loader-container">
+          <div class="loader"></div>
+        </div>
+
        <div class="form">
           <div class="form-group">
             <input class="form-control mx-auto" type="text" name="" id="location">
@@ -29,15 +26,15 @@
         </div>
 
        <div id="info-container" class="text-center my-4"><h4>Weather Info</h4></div>
-        <div class="container">
+        <div class="sub-container">
           <div class="row">
-            <div class="col-md-3 location">
-              <h5>Location</h5>
+            <div class="col-md-3 sub-info location">
+              <h5 class="text-center">Location</h5>
               <p></p>
               <p></p>
             </div>
-            <div class="col-md-3 temp">
-              <h5>Temperature</h5>
+            <div class="col-md-3 sub-info temp">
+              <h5 class="text-center">Temperature</h5>
               <div>
                 <p></p>
                 <p></p>
@@ -47,21 +44,27 @@
                 <button id="fahrenheit" class="btn btn-primary p-1">°F</button>
               </div>
             </div>
-            <div class="col-md-3 weather">
-              <h5>Weather Status</h5>
+            <div class="col-md-3 sub-info weather">
+              <h5 class="text-center">Weather Status</h5>
               <div>
                 <img id="weather-icon" src="">
                 <p></p>
               </div>
             </div>
-            <div class="col-md-3 wind-speed">
-              <h5>Wind Speed</h5>
+            <div class="col-md-3 sub-info wind-speed">
+              <h5 class="text-center">Wind Speed</h5>
               <div>
                 <p></p>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div class="video-container">
+        <video autoplay loop muted>
+          <source src="../bg-videos/waves.mp4" type="video/mp4">
+        </video>
+      </div>
     </section>
   </main>
 
