@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <title>Weather App</title>
 </head>
+
 <body>
 
   <main>
@@ -16,7 +18,7 @@
           <div class="loader"></div>
         </div>
 
-       <div class="form">
+        <div class="form">
           <div class="form-group">
             <input class="form-control mx-auto" type="text" name="" id="location">
           </div>
@@ -25,13 +27,15 @@
           </div>
         </div>
 
-       <div id="info-container" class="text-center my-4"><h4>Weather Info</h4></div>
+        <div id="info-container" class="text-center my-4">
+          <h4>Weather Info</h4>
+        </div>
         <div class="sub-container">
           <div class="row">
             <div class="col-md-3 sub-info location">
               <h5 class="text-center">Location</h5>
-              <p></p>
-              <p></p>
+              <div></div>
+              <div></div>
             </div>
             <div class="col-md-3 sub-info temp">
               <h5 class="text-center">Temperature</h5>
@@ -46,15 +50,15 @@
             </div>
             <div class="col-md-3 sub-info weather">
               <h5 class="text-center">Weather Status</h5>
-              <div>
-                <img id="weather-icon" src="">
-                <p></p>
+              <div class="status-icon"><img id="weather-icon" src=""></div>
+              <div class="weather-status-info">
+                <div></div>
               </div>
             </div>
             <div class="col-md-3 sub-info wind-speed">
               <h5 class="text-center">Wind Speed</h5>
-              <div>
-                <p></p>
+              <div class="wind-speed-info">
+                <div></div>
               </div>
             </div>
           </div>
@@ -70,4 +74,5 @@
 
   <script type="text/javascript" src="app.js"></script>
 </body>
+
 </html>
