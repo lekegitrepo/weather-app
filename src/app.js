@@ -11,7 +11,7 @@ const weatherIcon = document.getElementById('weather-icon');
 const infoContainer = document.getElementById('info-container');
 
 const locationInfo = document.querySelectorAll('.location > div');
-const tempInfo = document.querySelectorAll('.temp > div > p');
+const tempInfo = document.querySelectorAll('.temp-info > div');
 const weatherInfo = document.querySelectorAll('.weather-status-info > div');
 const windSpeedInfo = document.querySelectorAll('.wind-speed-info > div');
 
@@ -106,10 +106,21 @@ const displayWeatherInfo = (info) => {
   locationInfo[1].innerHTML = `<span class= "title">Country: </span>
   <span class="value">${info.location().country}</span>`;
 
+  locationInfo[2].innerHTML = `<div class= "title">Coordinate: </div>
+  <div class="value">Longitude: ${info.coordinate().lon}</div>
+  <div class="value">Latitude: ${info.coordinate().lat}</div>`;
+
   weatherIcon.src = `http://openweathermap.org/img/wn/${info.weather().icon}@2x.png`;
   weatherInfo[0].textContent = info.weather().main;
 
-  tempInfo[0].textContent = `${Math.round(info.temp().temp - 273.15)}°C`;
+  tempInfo[0].innerHTML = `<span class="title">Temp:</span>
+  <span> ${Math.round(info.temp().temp - 273.15)}°C</span>`;
+
+  tempInfo[1].innerHTML = `<span class="title">Max Temp:</span>
+  <span class="value"> ${Math.round(info.temp().temp_max - 273.15)}°C</span>`;
+
+  tempInfo[2].innerHTML = `<span class="title">Min Temp:</span>
+  <span class="value"> ${Math.round(info.temp().temp_min - 273.15)}°C</span>`;
 
   windSpeedInfo[0].textContent = info.wind().speed;
 };
@@ -122,15 +133,38 @@ btn.addEventListener('click', async () => {
 
 btnCelsius.addEventListener('click', () => {
   const cels = Math.round(dataHub.temp().temp - 273.15);
+  const celsMax = Math.round(dataHub.temp().temp_max - 273.15);
+  const celsMin = Math.round(dataHub.temp().temp_min - 273.15);
   console.log(dataHub.temp().temp);
-  tempInfo[0].textContent = `${cels}°C`;
+  // tempInfo[0].textContent = `${cels}°C`;
+  tempInfo[0].innerHTML = `<span class="title">Temp:</span>
+  <span> ${cels}°C</span>`;
+
+  tempInfo[1].innerHTML = `<span class="title">Max Temp:</span>
+  <span class="value"> ${celsMax}°C</span>`;
+
+  tempInfo[2].innerHTML = `<span class="title">Min Temp:</span>
+  <span class="value"> ${celsMin}°C</span>`;
+
   console.log(cels);
 });
 
 btnFahren.addEventListener('click', () => {
   const cels = Math.round(dataHub.temp().temp - 273.15);
   const faren = Math.round(cels * (9 / 5) + 32);
+  const farenMax = Math.round((dataHub.temp().temp_max) * (9 / 5) + 32);
+  const farenMin = Math.round((dataHub.temp().temp_min) * (9 / 5) + 32);
   console.log(dataHub.temp().temp);
-  tempInfo[0].textContent = `${faren}°F`;
+  tempInfo[0].textContent = '';
+
+  tempInfo[0].innerHTML = `<span class="title">Temp:</span>
+  <span> ${faren}°F</span>`;
+
+  tempInfo[1].innerHTML = `<span class="title">Max Temp:</span>
+  <span class="value"> ${farenMax}°F</span>`;
+
+  tempInfo[2].innerHTML = `<span class="title">Min Temp:</span>
+  <span class="value"> ${farenMin}°F</span>`;
+
   console.log(faren);
 });
