@@ -39,6 +39,20 @@
   #location {
     width: 40%;
   }
+
+  input[type=text] {
+    border: none;
+    background: transparent;
+    border-bottom: #000 2px solid;
+    font-family: 'Open Sans';
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  input {
+    outline: none;
+    box-shadow:none !important;
+  }
 }
 
 .bg-video {
