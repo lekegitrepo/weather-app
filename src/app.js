@@ -108,19 +108,18 @@ const displayWeatherInfo = (info) => {
   locationInfo[1].innerHTML = `<span class= "title">Country: </span>
   <span class="value">${info.location().country}</span>`;
 
-  locationInfo[2].innerHTML = `<div class= "title">Coordinate: </div>
-  <div class="value">Longitude: ${info.coordinate().lon}</div>
-  <div class="value">Latitude: ${info.coordinate().lat}</div>`;
+  locationInfo[2].innerHTML = `<div class="title">Longitude: <span class="value">${info.coordinate().lon}</span></div>
+  <div class="title">Latitude: <span class="value">${info.coordinate().lat}</span></div>`;
 
   weatherIcon.src = `http://openweathermap.org/img/wn/${info.weather().icon}@2x.png`;
   weatherInfo[0].innerHTML = `<span class="title">Status: </span>
-  <span> ${info.weather().main}</span>`;
+  <span class="value"> ${info.weather().main}</span>`;
 
   weatherInfo[1].innerHTML = `<span class="title">Wind Speed: </span>
   <span class="value"> ${info.wind().speed} Km/hr</span>`;
 
   tempInfo[0].innerHTML = `<span class="title">Temp: </span>
-  <span> ${Math.round(info.temp().temp - 273.15)}°C</span>`;
+  <span class="value"> ${Math.round(info.temp().temp - 273.15)}°C</span>`;
 
   tempInfo[1].innerHTML = `<span class="title">Max Temp: </span>
   <span class="value"> ${Math.round(info.temp().temp_max - 273.15)}°C</span>`;
