@@ -125,6 +125,11 @@ const displayWeatherInfo = (info) => {
   windSpeedInfo[0].textContent = info.wind().speed;
 };
 
+const tempConverter = (temp) => {
+  const cels = Math.round(temp - 273.15);
+  const faren = Math.round(cels * (9 / 5) + 32);
+}
+
 btn.addEventListener('click', async () => {
   loader.style.display = 'block';
   await getWeatherInfo();
@@ -152,8 +157,8 @@ btnCelsius.addEventListener('click', () => {
 btnFahren.addEventListener('click', () => {
   const cels = Math.round(dataHub.temp().temp - 273.15);
   const faren = Math.round(cels * (9 / 5) + 32);
-  const farenMax = Math.round((dataHub.temp().temp_max) * (9 / 5) + 32);
-  const farenMin = Math.round((dataHub.temp().temp_min) * (9 / 5) + 32);
+  const farenMax = Math.round((dataHub.temp().temp_max - 273.15) * (9 / 5) + 32);
+  const farenMin = Math.round((dataHub.temp().temp_min - 273.15) * (9 / 5) + 32);
   console.log(dataHub.temp().temp);
   tempInfo[0].textContent = '';
 
