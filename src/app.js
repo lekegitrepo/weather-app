@@ -128,6 +128,7 @@ const displayWeatherInfo = (info) => {
 const tempConverter = (temp) => {
   const cels = Math.round(temp - 273.15);
   const faren = Math.round(cels * (9 / 5) + 32);
+  return [cels, faren];
 }
 
 btn.addEventListener('click', async () => {
@@ -137,39 +138,24 @@ btn.addEventListener('click', async () => {
 });
 
 btnCelsius.addEventListener('click', () => {
-  const cels = Math.round(dataHub.temp().temp - 273.15);
-  const celsMax = Math.round(dataHub.temp().temp_max - 273.15);
-  const celsMin = Math.round(dataHub.temp().temp_min - 273.15);
-  console.log(dataHub.temp().temp);
-  // tempInfo[0].textContent = `${cels}°C`;
   tempInfo[0].innerHTML = `<span class="title">Temp:</span>
-  <span> ${cels}°C</span>`;
+  <span> ${tempConverter(dataHub.temp().temp)[0]}°C</span>`;
 
   tempInfo[1].innerHTML = `<span class="title">Max Temp:</span>
-  <span class="value"> ${celsMax}°C</span>`;
+  <span class="value"> ${tempConverter(dataHub.temp().temp_max)[0]}°C</span>`;
 
   tempInfo[2].innerHTML = `<span class="title">Min Temp:</span>
-  <span class="value"> ${celsMin}°C</span>`;
-
-  console.log(cels);
+  <span class="value"> ${tempConverter(dataHub.temp().temp_min)[0]}°C</span>`;
 });
 
 btnFahren.addEventListener('click', () => {
-  const cels = Math.round(dataHub.temp().temp - 273.15);
-  const faren = Math.round(cels * (9 / 5) + 32);
-  const farenMax = Math.round((dataHub.temp().temp_max - 273.15) * (9 / 5) + 32);
-  const farenMin = Math.round((dataHub.temp().temp_min - 273.15) * (9 / 5) + 32);
-  console.log(dataHub.temp().temp);
-  tempInfo[0].textContent = '';
 
   tempInfo[0].innerHTML = `<span class="title">Temp:</span>
-  <span> ${faren}°F</span>`;
+  <span> ${tempConverter(dataHub.temp().temp)[1]}°F</span>`;
 
   tempInfo[1].innerHTML = `<span class="title">Max Temp:</span>
-  <span class="value"> ${farenMax}°F</span>`;
+  <span class="value"> ${tempConverter(dataHub.temp().temp_max)[1]}°F</span>`;
 
   tempInfo[2].innerHTML = `<span class="title">Min Temp:</span>
-  <span class="value"> ${farenMin}°F</span>`;
-
-  console.log(faren);
+  <span class="value"> ${tempConverter(dataHub.temp().temp_min)[1]}°F</span>`;
 });
