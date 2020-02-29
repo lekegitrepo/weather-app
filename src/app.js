@@ -111,7 +111,8 @@ const displayWeatherInfo = (info) => {
   <div class="value">Latitude: ${info.coordinate().lat}</div>`;
 
   weatherIcon.src = `http://openweathermap.org/img/wn/${info.weather().icon}@2x.png`;
-  weatherInfo[0].textContent = info.weather().main;
+  weatherInfo[0].innerHTML = `<span class="title">Status: </span>
+  <span> ${info.weather().main}</span>`;
 
   tempInfo[0].innerHTML = `<span class="title">Temp:</span>
   <span> ${Math.round(info.temp().temp - 273.15)}°C</span>`;
@@ -122,7 +123,14 @@ const displayWeatherInfo = (info) => {
   tempInfo[2].innerHTML = `<span class="title">Min Temp:</span>
   <span class="value"> ${Math.round(info.temp().temp_min - 273.15)}°C</span>`;
 
-  windSpeedInfo[0].textContent = info.wind().speed;
+  tempInfo[3].innerHTML = `<span class="title">Humidity:</span>
+  <span class="value"> ${info.temp().humidity}%</span>`;
+
+  tempInfo[4].innerHTML = `<span class="title">Pressure:</span>
+  <span class="value"> ${info.temp().pressure} hPa</span>`;
+
+  windSpeedInfo[0].innerHTML = `<span class="title">Speed:</span>
+  <span class="value"> ${info.wind().speed} Km/hr</span>`;
 };
 
 const tempConverter = (temp) => {
