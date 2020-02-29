@@ -18,6 +18,7 @@ const windSpeedInfo = document.querySelectorAll('.wind-speed-info > div');
 const errorDiv = document.createElement('div');
 
 let dataHub = null;
+const date = new Date();
 
 async function fetchWeatherApi(location) {
   errorDiv.innerHTML = '';
@@ -137,6 +138,18 @@ const tempConverter = (temp) => {
   const cels = Math.round(temp - 273.15);
   const faren = Math.round(cels * (9 / 5) + 32);
   return [cels, faren];
+}
+
+const currentDate = () => {
+    const days = ['Sunday','Monday', 'Tuesday', 'Wednesday',
+                  'Thursday', 'Friday', 'Saturday'];
+    const today = days[date.getDay()];
+
+    const months = [ 'January', 'February', 'March', 'April', 
+                     'May', 'June', 'July', 'August',
+                     'September', 'October', 'November', 'December',];
+    const month = months[date.getMonth()];
+    return { today, month };
 }
 
 btn.addEventListener('click', async () => {
