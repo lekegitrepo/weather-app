@@ -43,6 +43,7 @@ async function getWeatherInfo() {
     dataHub = getJSON(info);
     displayWeatherInfo(dataHub);
     loader.style.display = 'none';
+    input.value = '';
   } catch (err) {
     loader.style.display = 'none';
     console.log('Unable to find weather info');
@@ -164,7 +165,7 @@ btn.addEventListener('click', async () => {
 
 btnCelsius.addEventListener('click', () => {
   tempInfo[0].innerHTML = `<span class="title">Temp:</span>
-  <span> ${tempConverter(dataHub.temp().temp)[0]}°C</span>`;
+  <span class="value"> ${tempConverter(dataHub.temp().temp)[0]}°C</span>`;
 
   tempInfo[1].innerHTML = `<span class="title">Max Temp:</span>
   <span class="value"> ${tempConverter(dataHub.temp().temp_max)[0]}°C</span>`;
@@ -176,7 +177,7 @@ btnCelsius.addEventListener('click', () => {
 btnFahren.addEventListener('click', () => {
 
   tempInfo[0].innerHTML = `<span class="title">Temp:</span>
-  <span> ${tempConverter(dataHub.temp().temp)[1]}°F</span>`;
+  <span class="value"> ${tempConverter(dataHub.temp().temp)[1]}°F</span>`;
 
   tempInfo[1].innerHTML = `<span class="title">Max Temp:</span>
   <span class="value"> ${tempConverter(dataHub.temp().temp_max)[1]}°F</span>`;
