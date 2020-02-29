@@ -40,18 +40,27 @@
     width: 40%;
   }
 
-  input[type=text] {
-    border: none;
+  #submit-loc {
     background: transparent;
+    border: #eee 2px solid;
+
+    &:hover {
+      background-color: #f3f3f354;
+    }
+  }
+
+  input[type=text] {
+    background: transparent;
+    border: none;
     border-bottom: #000 2px solid;
     font-family: 'Open Sans';
     font-size: 20px;
     font-weight: bold;
   }
 
-  input {
+  input, button#celsius, button#fahrenheit {
+    box-shadow: none !important;
     outline: none;
-    box-shadow:none !important;
   }
 }
 
