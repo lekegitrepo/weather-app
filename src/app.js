@@ -14,6 +14,7 @@ const locationInfo = document.querySelectorAll('.location > div');
 const tempInfo = document.querySelectorAll('.temp-info > div');
 const weatherInfo = document.querySelectorAll('.weather-status-info > div');
 const windSpeedInfo = document.querySelectorAll('.wind-speed-info > div');
+const dateInfo = document.getElementById('date');
 
 const errorDiv = document.createElement('div');
 
@@ -132,6 +133,10 @@ const displayWeatherInfo = (info) => {
 
   windSpeedInfo[0].innerHTML = `<span class="title">Speed:</span>
   <span class="value"> ${info.wind().speed} Km/hr</span>`;
+
+  dateInfo.innerHTML = `${currentDate().today}, 
+                        ${date.getDate()} ${currentDate().month}
+                        ${date.getFullYear()}`
 };
 
 const tempConverter = (temp) => {
