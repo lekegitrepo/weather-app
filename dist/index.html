@@ -1,68 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <link href="https://fonts.googleapis.com/css?family=Almendra|Antic+Didone|DM+Sans|Dorsa|Josefin+Sans|Josefin+Slab|Merriweather+Sans|Noto+Sans|Noto+Sans+HK|Odibee+Sans|Open+Sans|Open+Sans+Condensed:300|PT+Sans|Racing+Sans+One|Reem+Kufi|Sanchez|Sancreek|Sansita&display=swap" rel="stylesheet">
   <title>Weather App</title>
 </head>
+
 <body>
 
   <main>
-    <div id="loader-container" class="loader-container">
-      <div class="loader"></div>
-    </div>
-    <section class="mt-4">
-       <div class="form">
+    <section class="bg-video">
+      <div class="weather-info">
+        <div id="loader-container" class="loader-container">
+          <div class="loader"></div>
+        </div>
+
+        <div class="form">
           <div class="form-group">
-            <input class="form-control mx-auto" type="text" name="" id="location">
+            <input class="form-control mx-auto" type="text" placeholder="Enter Name of a City" id="location">
           </div>
           <div class="form-group text-center">
-            <input type="submit" class="btn btn-primary" id="submit-loc">
+            <input type="submit" class="btn btn-primary" value="Check Weather Info" id="submit-loc">
           </div>
         </div>
 
-       <div id="info-container" class="text-center my-4"><h4>Weather Info</h4></div>
-        <div class="container">
+        <div id="info-container" class="text-center mt-4 mb-2">
+          <h4>Weather Info</h4>
+        </div>
+        <div class="sub-container">
           <div class="row">
-            <div class="col-md-3 location">
-              <h5>Location</h5>
-              <p></p>
-              <p></p>
-            </div>
-            <div class="col-md-3 temp">
-              <h5>Temperature</h5>
-              <div>
-                <p></p>
-                <p></p>
-              </div>
-              <div class="temp-btns text-center">
-                <button id="celsius" class="btn btn-primary mr-3 p-1">°C</button>
-                <button id="fahrenheit" class="btn btn-primary p-1">°F</button>
+            <div class="col-md-4">
+              <div class="col-md-12 sub-info location">
+                <h5 class="text-center pt-2">Location</h5>
+                <div></div>
+                <div></div>
+                <div></div>
               </div>
             </div>
-            <div class="col-md-3 weather">
-              <h5>Weather Status</h5>
-              <div>
-                <img id="weather-icon" src="">
-                <p></p>
+            <div class="col-md-4">
+              <div class="col-md-12 sub-info temp">
+                <h5 class="text-center pt-2">Temperature</h5>
+                <div class="temp-info">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <div class="temp-btns text-center pb-2">
+                  <button id="celsius" class="btn btn-primary mr-3 p-1 shadow-none">°C</button>
+                  <button id="fahrenheit" class="btn btn-primary p-1 shadow-none">°F</button>
+                </div>
               </div>
             </div>
-            <div class="col-md-3 wind-speed">
-              <h5>Wind Speed</h5>
-              <div>
-                <p></p>
+            <div class="col-md-4">
+              <div class="col-md-12  sub-info weather">
+                <h5 class="text-center pt-2">Weather</h5>
+                <div class="status-icon text-center"><img id="weather-icon" src=""></div>
+                <div class="weather-status-info">
+                  <div></div>
+                  <div></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <div class="date-container">
+          <div id="date"></div>
+        </div>
+      </div>
+      <div class="video-container">
+        <video autoplay loop muted>
+          <source src="../bg-videos/waves.mp4" type="video/mp4">
+        </video>
+      </div>
     </section>
   </main>
 
-  <div id="weather-info" class="container">
-  </div>
-
   <script type="text/javascript" src="app.js"></script>
 </body>
+
 </html>
