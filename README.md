@@ -4,7 +4,7 @@
 
 This project was built using JS modules.
 
-Using Async/Await and Promise - dynamically loading a weather forecast! We are going to be using only JavaScript to generate the entire contents of the website!
+Using Async/Await and Promise - dynamically loading a weather forecast! We are going to be using only JavaScript to generate entire contents to be display on the website!
 
 ## Link to Project Instruction
 
@@ -20,7 +20,7 @@ Using Async/Await and Promise - dynamically loading a weather forecast! We are g
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](https://raw.githack.com/lekegitrepo/weather-app/weather_app/dist/index.html)
 
 ## Author
 

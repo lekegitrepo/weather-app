@@ -4,9 +4,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <title>Weather App</title>
 </head>
 <body>
+
+  <main>
+    <div id="loader-container" class="loader-container">
+      <div class="loader"></div>
+    </div>
+    <section class="mt-4">
+       <div class="form">
+          <div class="form-group">
+            <input class="form-control mx-auto" type="text" name="" id="location">
+          </div>
+          <div class="form-group text-center">
+            <input type="submit" class="btn btn-primary" id="submit-loc">
+          </div>
+        </div>
+
+       <div id="info-container" class="text-center my-4"><h4>Weather Info</h4></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 location">
+              <h5>Location</h5>
+              <p></p>
+              <p></p>
+            </div>
+            <div class="col-md-3 temp">
+              <h5>Temperature</h5>
+              <div>
+                <p></p>
+                <p></p>
+              </div>
+              <div class="temp-btns text-center">
+                <button id="celsius" class="btn btn-primary mr-3 p-1">°C</button>
+                <button id="fahrenheit" class="btn btn-primary p-1">°F</button>
+              </div>
+            </div>
+            <div class="col-md-3 weather">
+              <h5>Weather Status</h5>
+              <div>
+                <img id="weather-icon" src="">
+                <p></p>
+              </div>
+            </div>
+            <div class="col-md-3 wind-speed">
+              <h5>Wind Speed</h5>
+              <div>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+  </main>
+
+  <div id="weather-info" class="container">
+  </div>
 
   <script type="text/javascript" src="app.js"></script>
 </body>
