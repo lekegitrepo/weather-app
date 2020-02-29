@@ -20,7 +20,7 @@ Using Async/Await and Promise - dynamically loading a weather forecast! We are g
 
 ## Live Demo
 
-[Live Demo Link](https://raw.githack.com/lekegitrepo/weather-app/weather_app/dist/index.html)
+[Live Demo Link](https://raw.githack.com/lekegitrepo/weather-app/development/dist/index.html)
 
 ## Author
 
