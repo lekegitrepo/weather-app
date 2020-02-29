@@ -116,23 +116,23 @@ const displayWeatherInfo = (info) => {
   weatherInfo[0].innerHTML = `<span class="title">Status: </span>
   <span> ${info.weather().main}</span>`;
 
-  tempInfo[0].innerHTML = `<span class="title">Temp:</span>
+  weatherInfo[1].innerHTML = `<span class="title">Wind Speed: </span>
+  <span class="value"> ${info.wind().speed} Km/hr</span>`;
+
+  tempInfo[0].innerHTML = `<span class="title">Temp: </span>
   <span> ${Math.round(info.temp().temp - 273.15)}°C</span>`;
 
-  tempInfo[1].innerHTML = `<span class="title">Max Temp:</span>
+  tempInfo[1].innerHTML = `<span class="title">Max Temp: </span>
   <span class="value"> ${Math.round(info.temp().temp_max - 273.15)}°C</span>`;
 
-  tempInfo[2].innerHTML = `<span class="title">Min Temp:</span>
+  tempInfo[2].innerHTML = `<span class="title">Min Temp: </span>
   <span class="value"> ${Math.round(info.temp().temp_min - 273.15)}°C</span>`;
 
-  tempInfo[3].innerHTML = `<span class="title">Humidity:</span>
+  tempInfo[3].innerHTML = `<span class="title">Humidity: </span>
   <span class="value"> ${info.temp().humidity}%</span>`;
 
   tempInfo[4].innerHTML = `<span class="title">Pressure:</span>
   <span class="value"> ${info.temp().pressure} hPa</span>`;
-
-  windSpeedInfo[0].innerHTML = `<span class="title">Speed:</span>
-  <span class="value"> ${info.wind().speed} Km/hr</span>`;
 
   dateInfo.innerHTML = `${currentDate().today}, 
                         ${date.getDate()} ${currentDate().month}
